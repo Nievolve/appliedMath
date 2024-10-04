@@ -33,9 +33,9 @@ def C(b, alfa, gamma):
     logger.debug("C Sida i funktionen (dm): %s", c)
     return c
 
-def area(b, c, gamma):
-    Area = (b * c * np.sin(np.radians(gamma))) / 2
-    logger.debug("Beräkning av area: b=%s, c=%s, gamma=%s", b, c, gamma)
+def area(a, b, gamma):
+    Area = (a * b * np.sin(np.radians(gamma))) / 2
+    logger.debug("Beräkning av area: b=%s, c=%s, gamma=%s", b, c, np.radians(gamma))
     logger.debug("Area i funktionen (dm²): %s", Area)
     return Area
 
@@ -43,14 +43,16 @@ def area(b, c, gamma):
 alfa = 55  # grader
 a = 5.0  # dm
 b = 6.0  # dm
-
 # Sökt
 beta_rad = SinBeta(a, b, alfa)  # Beta i radianer
-beta_deg = np.degrees(np.arcsin(float(beta_rad.evalf())))  # Konvertera beta till numeriskt värde och sedan grader
-
+beta_deg = 180-np.degrees(np.arcsin(float(beta_rad.evalf())))  # Konvertera beta till numeriskt värde och sedan grader
+gammaDeg = 180-beta_deg-alfa
+c = a * np.sin(np.radians(alfa)) / np.sin(np.radians(gammaDeg))
+logger.debug("c sidan : c=%s", c)
 logger.debug("Beta (grader): %s", beta_deg)
+logger.debug("Gamme i grader: %s", gammaDeg)
+Area = area(a,b,gammaDeg) # dm**2
+logger.debug("Area = %s", Area)
 
 # Utskrift för att visa resultatet
-print(f"Beta i radianer: {beta_rad}")
-print(f"Beta i grader är: {beta_deg}")
 
