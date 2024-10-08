@@ -15,8 +15,3 @@ sol2 = sp.solve(eqb, x)
 print(f"{sol2[0]:.3g}")
 
 
-
-
- #f(x)=ax2+bx+c
-x=0
-eqc = sp.Eq(x=a*x**2+b*x+c)
