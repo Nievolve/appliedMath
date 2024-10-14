@@ -1,22 +1,25 @@
 import sympy as sp
+import numpy as np
 import tkinter as tk
 from tkinter import simpledialog
+import matplotlib as plt
 
 class lawnMower:
-    def __init__(self, speed=0.15, cutting_diameter=0.16, turnrate=10, overlap=0.05, holding=0.33):
+    def __init__(self, speed=0.15, cutting_diameter=0.16, turnrate=10, overlap=0.05, battery=3, consumption=30, wheelSpan= 0.4):
         self.speed = speed  # Hastighet i meter per sekund
         self.cutting_diameter = cutting_diameter  # Klippdiameter i meter
         self.turnrate = turnrate #Grader per sekund
         self.overlap = overlap #Överlapp i m
-        self.holding = holding #m3 volym gräs
+        self.battery = battery #A
+        self.consumption = consumption #W
+        self.wheelSpan = wheelSpan # meter
 
 class lawnAttribute:
-    def __init__(self, shape="kvadrat", sideA=50, sideB=50, overlap=0.1, inputGrass=0.002, turnRadie=180):
+    def __init__(self, shape="kvadrat", sideA=50, sideB=50, overlap=0.1, turnRadie=180):
         self.shape = shape
         self.sideA = sideA #meter
         self.sideB = sideB #meter
         self.overlap = overlap #meter
-        self.input = inputGrass #mängd gräs in i maskinen /s
         self.turnRadie = turnRadie #De svängar som tas på gräsmattan
 
     def changeSides(self, newSideA, newSideB):
@@ -25,7 +28,7 @@ class lawnAttribute:
         if newSideA == newSideB:
             self.shape = "kvadrat"
         else:
-            pass
+            self.shape = "rektangel"
 
 # MATH
 def vertical(area, speed, cuttingDiameter, turnrate, overlap, shape, turnRadie):
@@ -33,12 +36,24 @@ def vertical(area, speed, cuttingDiameter, turnrate, overlap, shape, turnRadie):
         lawnRow = sp.sqrt(area) / cuttingDiameter
         grassMeter = lawnRow * sp.sqrt(area)
         speedTime = grassMeter / speed #Sekunder det tar
+        turnTime = (turnRadie-45) / turnrate * (lawnRow - 1) #Sekunder det tar att göra en sväng
+        x = speedTime+turnTime
+        return x
+    if shape == "rektangel":
+        lawnRow= area
+def diagonal(area, speed, cuttingDiameter, turnrate, overlap, shape, turnRadie):
+    if shape == "kvadrat":
+        lawnRow = sp.sqrt(area) / cuttingDiameter
+        grassMeter = lawnRow * sp.sqrt(area)
+        speedTime = grassMeter / speed #Sekunder det tar
         turnTime = turnRadie / turnrate * (lawnRow - 1) #Sekunder det tar att göra en sväng
+        y = speedTime+turnTime
+        return y
+def calculateTurn(x,y, constBase,wheelR): #x=width y=height r=Hjulspann
+    turnAngle = 180-np.degrees(np.cos(y/np.sqrt((constBase/2)**2+y**2)))
+    circumference = wheelR*2*np.pi #Omkrets m divide by 2 to get two wheel turn
+    return (turnAngle, circumference)
 
-        print(lawnRow)
-        print(grassMeter)
-        print((speedTime) / 60 / 60)
-        print(turnTime)
 
 # TKINTER
 def button1_action():
@@ -50,23 +65,23 @@ def button1_action():
 
 
 def button2_action():
-    message_display.insert(tk.END, "Knapp 2 tryckt\n")
 
+    
+    message_display.insert(tk.END,f"{vertical(lawn.sideA*lawn.sideB, mower.speed, mower.cutting_diameter, mower.turnrate, mower.overlap, lawn.shape, lawn.turnRadie)/60/60:.1f}\n")
+    message_display.insert(tk.END,f"{diagonal(lawn.sideA*lawn.sideB, mower.speed, mower.cutting_diameter, mower.turnrate, mower.overlap, lawn.shape, lawn.turnRadie)/60/60:.1f}\n")
 def button3_action():
     message_display.insert(tk.END, "Knapp 3 tryckt\n")
+    print(calculateTurn(x=20,y=10,constBase=3,wheelR=0.4))
 
 # Funktion för att avsluta programmet
 def exit_program():
     root.destroy()   
 
-# Givna värden
+# Classes
 mower = lawnMower()
 lawn = lawnAttribute()
-area = lawn.sideA * lawn.sideB
 
-vertical(area, mower.speed, mower.cutting_diameter, mower.turnrate, mower.overlap, lawn.shape, lawn.turnRadie)
-
-# Skapa huvudfönstret
+# TKinter
 root = tk.Tk()
 
 # Sätt fönstrets titel
@@ -81,8 +96,8 @@ menubar = tk.Menu(menu, tearoff=0)
 menu.add_cascade(label="Meny", menu=menubar)
 
 # Area for menu buttons(dropdown)
-menubar.add_command(label="Ändra storlek", command=button1_action)
-menubar.add_command(label="Knapp 2", command=button2_action)
+menubar.add_command(label="Ändra storlek på gräsmattan", command=button1_action)
+menubar.add_command(label="Beräkna tid för gräsmatta", command=button2_action)
 menubar.add_command(label="Knapp 3", command=button3_action)
 
 # Message display

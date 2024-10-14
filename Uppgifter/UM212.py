@@ -19,4 +19,4 @@ print(deltaVinkel)
 #Sökt
 Ie3 =np.sqrt(Ie1**2+Ie2**2-2*Ie1*Ie2*np.cos(np.radians(I1I2Vinkel)))
 print(f"{Ie3*10**3:.3g}")
-b3 = "?"
+b3 = ""

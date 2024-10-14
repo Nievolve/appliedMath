@@ -1,0 +1,9 @@
+2024-10-04 08:14:54 - root - DEBUG - Alfa Value : sinAlfaValue=0.8191520442889918
+2024-10-04 08:14:54 - root - DEBUG - Ber�kna beta: a=5.0, b=6.0, alfa=55
+2024-10-04 08:14:54 - root - DEBUG - beta rad: ValueBeta=0.982982453146790
+2024-10-04 08:14:54 - root - DEBUG - c sidan : c=9.908990883842595
+2024-10-04 08:14:54 - root - DEBUG - Beta (grader): 100.5853183507654
+2024-10-04 08:14:54 - root - DEBUG - Gamme i grader: 24.414681649234595
+2024-10-04 08:14:54 - root - DEBUG - Ber�kning av area: b=6.0, c=9.908990883842595, gamma=0.426116580605383
+2024-10-04 08:14:54 - root - DEBUG - Area i funktionen (dm�): 6.200066590216705
+2024-10-04 08:14:54 - root - DEBUG - Area = 6.200066590216705
