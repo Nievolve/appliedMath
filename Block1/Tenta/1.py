@@ -9,8 +9,8 @@ def Rtemp(T):
     L = 11
     r20= rå*L/A
     a=0.0038
-    print(f"{r20:.3g}")
-    R= 0.119*(1+a*(T))
+    R= r20*(1+a*(T))
     return R
 
-print(f"82= {Rtemp(T=82):.3g}")
+print(f"82 grader = {Rtemp(T=82):.3g}")
+print(f"I mOhm= {Rtemp(T=82)*10**3:.3g}")
