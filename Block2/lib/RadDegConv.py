@@ -1,6 +1,10 @@
-# Trigonometriska funktioner 1/5
-# Om radförhållandet mellan radiens och grader, matematiskt
+"""
+Trigonometriska funktioner 1/5
+Om radförhållandet mellan radiens och grader, matematiskt.
 
+Praktiskt använda för att läsa in:  radier-->grader
+                                    grader-->radier
+"""
 import numpy as np
 # För att göra radiens ---> grader
 def radToDeg(rad):
