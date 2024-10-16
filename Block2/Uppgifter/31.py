@@ -7,3 +7,14 @@
 # b) sin(x) = -0.9
 # c) cos(x) = 0.6
 # d) cos(x) = -0.8
+
+
+import sympy as sp
+
+
+# Givet (lista)
+sinCosList = [0.6,-0.9]
+
+x = sp.symbols("x")
+sol = sp.solve_linear(sp.sin(x), 0.6)
+print(sol)

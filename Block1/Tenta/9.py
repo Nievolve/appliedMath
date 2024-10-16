@@ -11,12 +11,8 @@ a = b*q/p
 # Beräkna X med pythagoras sats
 x = np.sqrt(q**2-a**2)
 
-# Försöker beräkna hela triangeln
-helaH = q+p
-helaA = a+b
-helaO = np.sqrt(helaH**2-helaA**2)
 
-
+# Resultat
 print(f"X = {x:.3g} m")
 
 
@@ -31,7 +27,5 @@ Oo = sol[0]
 A = (p+b)/2*sol[0]
 print(f"facit:")
 print(f"Area = {A:.3g} m2")
-# Hopplöst
-Ooo = x*b/p
-print(Ooo)
+
 
