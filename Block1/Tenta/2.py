@@ -8,7 +8,7 @@ def calculate_resistance(L, D, r):
     return R
 
 # Given information
-r = 2.71e-8  # Resistivitet i Ωm
+r = 2.71e-8  # Resistivitet i Ohm
 L = 2179e-3  # Längd i meter (2179 mm omvandlat till meter)
 D = 1.95e-3  # Diameter i meter (1.95 mm omvandlat till meter)
 

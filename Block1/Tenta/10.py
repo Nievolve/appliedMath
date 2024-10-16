@@ -19,5 +19,5 @@ alfaGrader = np.degrees(alfaRad)
 
 b3 = 90-(b2-180)-alfaGrader
 
-print(f"Ie3= {Ie3:.3g}")
-print(f"B3 = {b3:.3g}")
+print(f"Ie3= {Ie3:.3g} A")
+print(f"B3 = {b3:.3g} grader")

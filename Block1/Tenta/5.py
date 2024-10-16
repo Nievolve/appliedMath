@@ -1,6 +1,6 @@
 import numpy as np
 
-def calculate_kinetic_energy(Dcm, deltaT, v, rho):
+def beräkna_energi(Dcm, deltaT, v, rho):
     # Omvandla till lika
     Dm = Dcm / 100  # Diameter i meter
     delta_t = deltaT * 3600  # Gör om till sekunder
@@ -24,5 +24,5 @@ deltaT = 34.4 #h
 v = 14.8 #m/s
 rho = 1.29 #kg/m3
 
-EkkWh = calculate_kinetic_energy(D, deltaT, v, rho)
+EkkWh = beräkna_energi(D, deltaT, v, rho)
 print(f"Den teoretiska kinetiska energin är: {EkkWh:.2f} kWh")

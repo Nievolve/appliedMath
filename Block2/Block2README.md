@@ -1,5 +1,0 @@
-# Uppgifter
-
-# Library
-    + RadDegConv
-        
