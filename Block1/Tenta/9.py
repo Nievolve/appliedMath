@@ -1,5 +1,6 @@
 import numpy as np
 import sympy as sp
+
 # Given
 q = 12.7
 p = 23.5
