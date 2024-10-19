@@ -7,5 +7,8 @@ def agility(a):
     return e
 
 if __name__ == "__main__":
-    for k in range(1,99):
-        print(agility(k))
+    for k in range(1,22):
+        print(f"Agility level {k}: {agility(k):.3f}")
+
+    intervall = 0.192-0.136
+    print(intervall/20)
