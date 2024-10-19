@@ -14,5 +14,11 @@
     d) \(\cos(x) = -0.8\)
 
 # Library
-    + RadDegConv
+    + RadDegConv.py
+        Har två funktioner, läser in radians och gör om till grader eller tvärtom
+    + xplot.py
+        Tar in en lista av värden och sätter en plot för den
+
+    
+
         

@@ -1,24 +1,26 @@
-"""
-Trigonometriska funktioner 1/5
-Om radförhållandet mellan radiens och grader, matematiskt.
-
-Praktiskt använda för att läsa in:  radier-->grader
-                                    grader-->radier
-"""
 import numpy as np
-# För att göra radiens ---> grader
-def radToDeg(rad):
-    deg = (180/np.pi)*rad
-    return deg
-# För att göra grader ---> radens
-def degToRad(deg):
-    rad = (np.pi/180)*deg
-    return rad
 
+def rad_to_deg(rad):
+    """
+    Konvertera radianer till grader.
+    
+    :param rad: Värdet i radianer
+    :return: Värdet i grader
+    """
+    return (180 / np.pi) * rad
 
-# Given 
-rad = 1     #Fyll in värdet på radiens som ska bli grader#
-deg = 1     #Fyll in värdet på grader som ska bli radiens
-# Utför
-print(f"Radien: {rad} blir till grader: {radToDeg(rad)}")
-print(f"Grader: {deg} blir till radiens: {degToRad(deg)}")
+def deg_to_rad(deg):
+    """
+    Konvertera grader till radianer.
+    
+    :param deg: Värdet i grader
+    :return: Värdet i radianer
+    """
+    return (np.pi / 180) * deg
+
+# Testa konverteringar mellan radianer och grader
+rad = float(input("Ange värdet i radianer som ska konverteras till grader: "))
+deg = float(input("Ange värdet i grader som ska konverteras till radianer: "))
+
+print(f"{rad} radianer är lika med {rad_to_deg(rad)} grader.")
+print(f"{deg} grader är lika med {deg_to_rad(deg)} radianer.")
