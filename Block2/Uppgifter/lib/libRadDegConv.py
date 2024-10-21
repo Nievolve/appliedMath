@@ -17,10 +17,10 @@ def deg_to_rad(deg):
     :return: Värdet i radianer
     """
     return (np.pi / 180) * deg
-
+if __name__ == "__main__":
 # Testa konverteringar mellan radianer och grader
-rad = float(input("Ange värdet i radianer som ska konverteras till grader: "))
-deg = float(input("Ange värdet i grader som ska konverteras till radianer: "))
+    rad = float(input("Ange värdet i radianer som ska konverteras till grader: "))
+    deg = float(input("Ange värdet i grader som ska konverteras till radianer: "))
 
-print(f"{rad} radianer är lika med {rad_to_deg(rad)} grader.")
-print(f"{deg} grader är lika med {deg_to_rad(deg)} radianer.")
+    print(f"{rad} radianer är lika med {rad_to_deg(rad)} grader.")
+    print(f"{deg} grader är lika med {deg_to_rad(deg)} radianer.")
