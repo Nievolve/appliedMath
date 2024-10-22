@@ -16,7 +16,6 @@ x = np.sqrt(q**2-a**2)
 # Resultat
 print(f"X = {x:.3g} m")
 
-
 # Denna har jag än inte löst
 # Med facit för denna variation är rätt svar
 facit = 287
@@ -30,3 +29,27 @@ print(f"facit:")
 print(f"Area = {A:.3g} m2")
 
 
+# Enligt Luciano är detta formlen för att lösa ut X i uppgiften
+aa = sp.symbols("x")
+aEq = sp.Eq((q+p)/q,(aa+b)/a)
+solA = sp.solve(aEq, aa)
+print(solA)
+
+
+O = np.sqrt((q+p)**2-(a+b)**2)
+print(O)
+
+
+areaOne = (a+b)*O/2
+print(areaOne)
+
+areaTwo = a*x/2
+
+print(areaTwo)
+
+areaThree=areaOne-areaTwo
+
+print(areaThree)
+
+
+# Löst

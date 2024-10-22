@@ -10,10 +10,12 @@ x = o / h  # Vinkel X
 bevisSin = 2 * round(np.sin(x) * np.cos(x),1)  # Beräkna sin(2x) med formel
 bevisCos =  (np.sin(x)**2)-(np.cos(x))**2
 bevisTan = 1
-print(bevis)
+
 
 
 # Exempel föra om decimaltal till bråk
 
 fraction = Fraction(bevisSin).limit_denominator()
+print(fraction)
+fraction = Fraction(bevisCos).limit_denominator()
 print(fraction)
