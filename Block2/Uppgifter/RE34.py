@@ -13,7 +13,7 @@ time_list = []
 voltage_list = []
 
 # Fyller listorna med värden
-for k in range(1, 1000):  # Kanske vill du använda fler punkter för en mer jämn kurva
+for k in range(1, 200):  # Kanske vill du använda fler punkter för en mer jämn kurva
     voltage = Ctopp(t=k)
     time_list.append(k)
     voltage_list.append(voltage)
