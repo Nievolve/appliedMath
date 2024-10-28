@@ -1,17 +1,22 @@
 # Uppgifter
 ## 3.1
-    Bilder nedan visar grafen till sinus- och cosinusfunktion
-    för vinklar i intervallet \(0 \leq x \leq 2\pi\) rad. Använd graferna för att
-    få närmevärde till följande trigonometriska ekvationer i det
-    intervallet. Ange även lösningar i vinkelmått grader.
+Check
+    Kan förfina koden
+## 3.2
+Inte riktigt en programmeringsbar uppgift.
+Träna på att manipulera och förenkla/utveckla formlerm
+## 3.3
+Kolla anteckningar om du blir osäker. Koden funkar sisådär. SIn funkar men inte COS eller TAN
+## 3.4
+Funkar bra. bra att lära sig om np.arange för INTERVALLER. Den använder också xyPlot.
+Check
+## 3.5
 
-    a) \(\sin(x) = 0.6\)
+## 3.6
 
-    b) \(\sin(x) = -0.9\)
+## 3.7
 
-    c) \(\cos(x) = 0.6\)
-
-    d) \(\cos(x) = -0.8\)
+## 3.8
 
 # Library
     + RadDegConv.py
