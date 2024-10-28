@@ -1,37 +1,45 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import sympy as sp
+def Icalc(itopp, t, w, V):
+    return itopp * np.sin(w * t + V)
+def top(x):
+    y = max(x)
+    return y
+#Givet
+w = 100 * np.pi
 
-# Funktion för att beräkna i(t)
-def iTimes(a, t, w, v):
-    i = a * np.sin(w * t + v)
-    return i
+interval = np.arange(0, 0.1, 0.001)  # Från 0 till 0.1 sekunder med steget 0.001
 
-# Frekvensen W
-W = 100 * np.pi
+# Beräkna strömvärden för varje tidpunkt i intervallet
+I1Graf = [Icalc(itopp=2, t=k, w=w, V=0) for k in interval]
+I2Graf = [Icalc(itopp=1.5, t=k, w=w, V=np.sqrt(2)/2) for k in interval]
+I3Graf = [Icalc(itopp=1.5, t=k, w=w, V=np.sqrt(2)/2)+Icalc(itopp=2, t=k, w=w, V=0)for k in interval]
 
-# Tidsarray för att plotta grafen
-t = np.linspace(0, 10, 1000)
+print("Max är: ",top(I3Graf))
+# Sympy
+beta = sp.symbols("beta")
+eqI3 = sp.Eq(1.1, 3.2*sp.sin(w*0+beta))
+solve = sp.solve(eqI3, beta)
+print(solve)
 
-# Beräknar strömmarna
-i1 = iTimes(a=2, t=t, w=W, v=0)
-i2 = iTimes(a=1.5, t=t, w=W, v=np.sqrt(2)/2)
 
-# Summa av de två strömmarna
-i3 = i1 + i2
+# Plotta resultaten
+plt.plot(interval, I1Graf, label="I1")
+plt.plot(interval, I2Graf, label="I2")
+plt.plot(interval, I3Graf, label="I3")
+# Sätt etiketter för axlarna
+plt.xlabel("Tid (sekunder)")
+plt.ylabel("Ström (A)")
 
-# Utskrift av värdena vid t=1 och t=2
-print(iTimes(a=2, t=0, w=W, v=0))  # i1 vid t=1
-print(iTimes(a=1.5, t=0, w=W, v=np.sqrt(2)/2))  # i2 vid t=2
-print(f"{iTimes(a=2, t=0, w=W, v=0) + iTimes(a=1.5, t=2, w=W, v=np.sqrt(2)/2)}")  # i3 vid t=1 och t=2
+# Sätt en titel
+plt.title("Sinusformad Ström över Tid")
 
-# Plotta strömmarna
-plt.figure()
-plt.plot(t, i1, label='i1(t)')
-plt.plot(t, i2, label='i2(t)')
-plt.plot(t, i3, label='i3(t) = i1(t) + i2(t)')
-plt.xlabel('Tid (s)')
-plt.ylabel('Ström (A)')
-plt.title('Strömmar som funktion av tid')
-plt.legend()
+# Aktivera rutnät och legend
 plt.grid(True)
+plt.legend()
+
+# Visa grafen
 plt.show()
+
+
