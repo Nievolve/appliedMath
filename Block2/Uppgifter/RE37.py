@@ -19,18 +19,23 @@ from lib import xyPlot
 
 def ut(Itopp,w,t):
     return Itopp*np.sin(w*t)
+def ut1(Itopp, w, t,L):
+    return L*Itopp*np.pi*np.cos(w*t) 
 
-a = 0.005/10
-intervalI = np.arange(0.001,0.005,a)
+#Given information
+intervalI = np.arange(1*10**-3,5*10**-3,5*10**-3/10)
 w = 100*np.pi
-
-
+L = 0.8 #H
 constI= 10 #A
-
-aU=constI*np.sin(w*0)
 
 #B
 
 Ul = [ut(intervalI, w,t)for t in intervalI]
 Ylabel="Hej"
 xyPlot.xyplot(Ul,len(Ul)+1,Ylabel)
+
+
+#C
+# L*Itopp*w*cos(w*t)
+
+

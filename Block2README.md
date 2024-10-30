@@ -21,6 +21,15 @@ Check
 Kolla här och anteckningar(4/5) för derivatan. 
 Inte klar
 ## 3.8
+Kommer nog på tentan
+Den är fungerande
+U(t) = 
+## 3.9
+Väldigt simpel formel för Xc
+## 3.10
+Kommer nog på tentan
+Den är fungerande
+
 
 # Library
     + RadDegConv.py

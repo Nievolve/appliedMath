@@ -1,35 +1,62 @@
 import numpy as np
 
 """
-Genom en spole med induktansen 0,8 H går en ström.
-Beräkna den inducerade spänningen över spolen då strömmen:
-a) är konstant 10 A
-b) ökar linjärt från 0 till 0,5 A på 10 ms.
-c) är en sinusformad ström i(t) = 0,75 * sin(100πt) [A].
+Räkneexempel 3.8
 
-Definera
+Beräkna det momentana spänningsuttryck
+ u(t)u(t) i kretsen nedan, 
+ då huvudströmmen i(t)=48⋅sin⁡(100π⋅t+π6) mA, R=100 ΩR=100 Ω och L=0,15 HL=0,15 H.
+
+a) Utför beräkningen grafiskt i tidsrepresentation, dvs med tidsvariabla strömmen och spänningen.
+
+b) Utför beräkningen analytiskt i visarrepresentation, dvs med strömsummare och spänningsvisare.
 
 Givet
 
-    Elkomponent: spole
-    Induktansen L = 0,8 H
-    a) Likström I = 10 A
-    b) Linjär funktion 0-0.5 A på 10ms
-    c) Sinusfunktion i(t)=iTOP*sin(w*t)
+    Elkrets med tre komponenter i seriekoppling
+        Spänningskälla: Växelström U(t)=?U(t)=?
+        Resistor: Resistansen R=100 ΩR=100 Ω
+        Ideal spole: Induktansen L=0,15 HL=0,15 H
+
+    Huvudströmmen: i(t)=48⋅sin⁡(100π⋅t+π6)i(t)=48⋅sin(100π⋅t+6π​) mA
+        I^=48 mA , ω=100π rad/s, β=π/6 rad(faskonstanten)
 
 Sökt
 
-    a), b) och c)
-    Den inducerade spänningen över spolen
+    Den momentana spänningen u(t)u(t), dvs den tidsvariabla funktionen som beskriver funktionsregeln U(t)U(t).
+        a) Metoden: Tidsrepresentation (grafiskt)
+        b) Metoden: Visarrepresentation
 
-Undersöka
-    Här övar vi med formeln [F.3.3.5]
-        U (t)=L* di(t)/dt
-    Förkunskaper: linjära funktioner, i synnerhet k-formel (= differenskvot).
-    Matematik 2a.
+        Undersöka
+
+    Här tillämpas Kirchhoffs spänningslag.
+    För metoden a) kombineras teoretiska uppförande med grafritning av grafavläsning.
+    För metoden b) tillämpas geometri och trigonometri.
 """
 
-def constI(t):
-    L = 0.8 #H
-    pass
+import numpy as np
+from lib import xyPlot as XY
+def Ur(R,Itopp,w,t,V):
+	return R*Itopp*np.sin(w*t+V)
+def Ul(Xl,Itopp,w,t,V,fasförskjutning):
+	return Xl*Itopp*np.sin(w*t+(V+fasförskjutning))
+def Xl(L,w):
+	return L*w
 
+
+#Givet
+Itopp = 48*10**-3 #A
+L = 0.15
+R = 100
+
+f = 50
+w = 100*np.pi
+V = np.pi/6
+fasförskjutning= np.pi/2
+intervalT = np.arange(0.000,0.02,0.001)
+ut= [Ur(R,Itopp,w,k,V)+Ul(Xl(L,w),Itopp,w,k,V,fasförskjutning)for k in intervalT]
+Ylabel = "U(t)"
+XY.xyplot(ut,len(ut)+1,Ylabel)
+
+	
+print(max(ut))
