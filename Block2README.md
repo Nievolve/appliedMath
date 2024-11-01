@@ -29,6 +29,7 @@ Väldigt simpel formel för Xc
 ## 3.10
 Kommer nog på tentan
 Den är fungerande
+Koden funkar
 
 
 # Library

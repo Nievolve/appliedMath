@@ -52,12 +52,22 @@ faskompensering=-np.pi/2 #negativ 90 grader för det är en kapacitivbelastning
 print(f"{Xc(w,C):.4g}")
 
 
-intervalT = np.arange(0.00,0.02,0.001)
+intervalT = np.arange(0.00,0.03,0.001)
 
 ut = [Ur(R,Itopp,w,k,V)+Uc(Xc(w,C),Itopp,w,k,V,faskompensering)for k in intervalT]
 ur = [Ur(R,Itopp,w,k,V)for k in intervalT]
 uc = [Uc(Xc(w,C),Itopp,w,k,V,faskompensering)for k in intervalT]
-Ylabel="Varför tar jag inte bort denna"
+Ylabel="Ut"
 XY.xyplot(ut,len(ut)+1,Ylabel)
+Ylabel="Ur"
 XY.xyplot(ur,len(ur)+1,Ylabel)
+Ylabel="Uc"
 XY.xyplot(uc,len(uc)+1,Ylabel)
+print(f"Ur TOPP = {max(ur)}")
+print(f"Uc TOPP = {max(uc)}")
+
+print(f"Ut TOPP = {max(ut)}")
+
+
+visarUtopp = np.sqrt(max(ur)**2+max(uc)**2)
+print(visarUtopp)
