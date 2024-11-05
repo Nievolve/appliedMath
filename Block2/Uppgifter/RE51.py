@@ -9,4 +9,4 @@ z = cm.rect(magnitute,argumentRad)
 
 print(z)
 print(z.real)
-print
+print(z.imag)
