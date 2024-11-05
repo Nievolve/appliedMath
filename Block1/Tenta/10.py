@@ -8,7 +8,7 @@ Ie2 = 4.78 #A
 b2 = 225 #grader
 GammaVinkel = 360-(b1+b2)
 
-#Beräkningar
+#Beräkningar, formel...
 Ie3 =np.sqrt(Ie1**2+Ie2**2-2*Ie1*Ie2*np.cos(np.radians(GammaVinkel)))
 
 

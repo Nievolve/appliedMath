@@ -1,0 +1,81 @@
+<?xml-stylesheet href="http://www.wiris.net/calcme.com/calc.alpha/template" type="text/xsl" ?>
+<wiriscalc version="3.2"><title><math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>AUTV2024RitaFunktioner</mtext></math></title><properties><property name="decimal_separator">.</property><property name="digit_group_separator"></property><property name="float_format">mg</property><property name="imaginary_unit">i</property><property name="implicit_times_operator">false</property><property name="item_separator">,</property><property name="lang">en</property><property name="precision">5</property><property name="save_settings_in_cookies">false</property><property name="times_operator">·</property><property name="use_degrees">false</property></properties><session version="3.0" lang="en"><task><title><math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>RitaEnLinje</mtext></math></title><group><algorithm><![CDATA[#(c) Luciano Triguero
+#Revision 2024
+#Material för Tillämpad Matematik
+#########################################
+#Mat in funktionsregeln
+f(x) = x + 2
+#Skapa ett rektangulärt koordinatssystem
+pl = plotter({center=point(0,0),height=10,width=10,axis_label={"x","f(x)"}})
+attributes({grid_subdivisions=1,axis_style="none",background_color={255,255,255}, # warning: attributes2d, It isn't possible to apply the expression.
+            grid_color={198,198,0},axis_color={0,0,0},grid_step_x=1,0,grid_step_y=1.0,
+            horizontal_axis_values_position="below"})
+#Rita funktionen i koodinatsssystemet
+plot(pl,f(x),-3,3,{color=red,line_width=2})
+]]></algorithm><command><input><math xmlns="http://www.w3.org/1998/Math/MathML"/></input></command></group></task><task><title><math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>RitaEnSinusvurva</mtext></math></title><group><algorithm><![CDATA[#(c) Luciano Triguero
+#Revision 2024
+#Material för Tillämpad Matematik
+#####################################
+#OBS! Se till att vinkelmått är inställt
+# i radianer. Kolla i Applications Setting
+#########################################
+utopp = 325; w = 100*Pi_; R=2 
+u(t) = utopp*sin(w*t*10^-3)
+i(t) = u(t)/R
+#Beräkna perioden
+T = 2*Pi_*10^3/w
+pl = plotter({center=point(0,0),height=1000,width=3*T,axis_label={"t[ms]","u(t)[V];i(t)[A]"}})
+attributes({grid_subdivisions=1,axis_style="none",background_color={255,255,255}, 
+            grid_color={198,198,0},axis_color={0,0,0},grid_step_x=5,grid_step_y=100,
+            horizontal_axis_values_position="below"})
+plot(pl,u(t),0,2*T,{color=red,
+line_width=2})
+plot(pl,i(t),0,2*T,{color=blue,line_width=2})]]></algorithm><command><input><math xmlns="http://www.w3.org/1998/Math/MathML"/></input></command></group></task><task><title><math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>RitaEnF(t)Sin(t)</mtext><mspace linebreak="newline"/></math></title><group><algorithm><![CDATA[f(t) = sin(t)
+
+T = 2 * Pi_
+
+pl = plotter({center=point(0, 0), height=5, width=3*T, axis_label={"t", "f(t)"}})
+attributes({
+    grid_subdivision=1,
+    axis_style="none",
+    background_color={255, 255, 255},
+    grid_color={198, 198, 0},
+    axis_color={0, 0, 0},
+    grid_step_x=5,
+    grid_step_y=100,
+    horizontal_axis_values_position="below"
+})
+plot(pl, f(t), -2*T, 2*T, {color=blue, line_width=2})
+]]></algorithm><command><input><math xmlns="http://www.w3.org/1998/Math/MathML"/></input></command></group></task><task><title><math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>Tutorial2G</mtext><mspace linebreak="newline"/></math></title><group><algorithm><![CDATA[uTopp=325
+w=100*Pi_
+alfa=Pi_/4
+T=2*Pi_*10^3/w
+
+# Momentana spänningen
+u(t)=uTopp*sin(w*t+alfa)
+R = 100
+i(t)=u(t)/R
+# Skapa plott-instansen
+pl=plotter({
+    center=point(0,0),
+    height=1000,
+    width=3*T,
+    axis_label={"t","u(t)[V], i(t)[dA]"}
+})
+
+# Konfigurera plott-attribut
+attributes({
+    grid_subdivision=1,
+    axis_style="none",
+    background_color={255,255,255},
+    grid_color={198,198,0},
+    axis_color={0,0,0},
+    grid_step_x=5,
+    grid_step_y=100,
+    horizontal_axis_values_position="below"
+})
+
+# Plot funktionen
+plot(pl,u(t*10^-3),-2*T,2*T,{color=red,line_width=2})
+plot(pl,i(t*10^-3)*10^1,-2*T,2*T,{color=blue,line_width=2})
+]]></algorithm><command><input><math xmlns="http://www.w3.org/1998/Math/MathML"/></input></command><command><input><math xmlns="http://www.w3.org/1998/Math/MathML"/></input></command><command><input><math xmlns="http://www.w3.org/1998/Math/MathML"/></input></command></group></task></session><constructions><construction group="1"><![CDATA[{"elements":[{"id":"curve1","value_content":"<math><lambda><bvar><ci>x</ci></bvar><domainofapplication><interval closure=\"closed\"><apply><minus/><cn>3</cn></apply><cn>3</cn></interval></domainofapplication><apply><plus/><ci>x</ci><cn>2</cn></apply></lambda></math>","type":"function_graph","wiris_cas_kernel_computed":"false"}],"constraints":[],"displays":[{"styles":[{"color":"#FF0000","stroke_width":2,"external":true,"ref":"curve1"}],"id":"plotter1","center":[0,0],"background_color":"#FFFFFF","axis_color":"#717171","grid_primary_color":"#C6C6C6","grid_secondary_color":"#E2E2E2","axis_x":true,"horizontal_axis_label":"<math><mtext>x</mtext></math>","horizontal_axis_values_position":"below","horizontal_axis_step":"auto","grid_x":true,"horizontal_grid_step":"auto","axis_y":true,"vertical_axis_label":"<math><mtext>f(x)</mtext></math>","vertical_axis_values_position":"left","vertical_axis_step":"auto","grid_y":true,"vertical_grid_step":"auto","width":10,"height":10,"grid_subdivisions":2}],"handwriting_traces":[]}]]></construction><construction group="2"><![CDATA[{"elements":[{"id":"curve1","value_content":"<math><lambda><bvar><ci>t</ci></bvar><domainofapplication><interval closure=\"closed\"><cn>0</cn><cn>40</cn></interval></domainofapplication><apply><times/><cn>325</cn><apply><sin/><apply><divide/><apply><times/><pi/><ci>t</ci></apply><cn>10</cn></apply></apply></apply></lambda></math>","type":"function_graph","wiris_cas_kernel_computed":"false"},{"id":"curve2","value_content":"<math><lambda><bvar><ci>t</ci></bvar><domainofapplication><interval closure=\"closed\"><cn>0</cn><cn>40</cn></interval></domainofapplication><apply><divide/><apply><times/><cn>325</cn><apply><sin/><apply><divide/><apply><times/><pi/><ci>t</ci></apply><cn>10</cn></apply></apply></apply><cn>2</cn></apply></lambda></math>","type":"function_graph","wiris_cas_kernel_computed":"false"}],"constraints":[],"displays":[{"styles":[{"color":"#FF0000","stroke_width":2,"external":true,"ref":"curve1"},{"color":"#0000FF","stroke_width":2,"external":true,"ref":"curve2"}],"id":"plotter1","aspect_ratio":0.06,"center":[0,0],"background_color":"#FFFFFF","axis_color":"#000000","grid_primary_color":"#C6C600","grid_secondary_color":"#E2E2E2","axis_x":true,"horizontal_axis_label":"<math><mtext>t[ms]</mtext></math>","horizontal_axis_values_position":"below","horizontal_axis_step":"auto","grid_x":true,"horizontal_grid_step":5,"axis_y":true,"vertical_axis_label":"<math><mtext>u(t)[V];i(t)[A]</mtext></math>","vertical_axis_values_position":"left","vertical_axis_step":"auto","grid_y":true,"vertical_grid_step":100,"width":60,"height":1000,"external":false,"grid_subdivisions":2}],"handwriting_traces":[]}]]></construction><construction group="3"><![CDATA[{"elements":[{"id":"curve1","value_content":"<math><lambda><bvar><ci>t</ci></bvar><domainofapplication><interval closure=\"closed\"><apply><minus/><cn>12.566370614359172</cn></apply><cn>12.566370614359172</cn></interval></domainofapplication><apply><sin/><ci>t</ci></apply></lambda></math>","type":"function_graph","wiris_cas_kernel_computed":"false"}],"constraints":[],"displays":[{"styles":[{"color":"#0000FF","stroke_width":1,"line_style":0,"external":true,"ref":"curve1"}],"id":"plotter1","aspect_ratio":3.769911193847656,"center":[0,0],"background_color":"#FFFFFF","axis_color":"#000000","grid_primary_color":"#C6C600","grid_secondary_color":"#E2E2E2","axis_x":true,"horizontal_axis_label":"<math><mtext>t</mtext></math>","horizontal_axis_values_position":"below","horizontal_axis_step":"auto","grid_x":true,"horizontal_grid_step":5,"axis_y":true,"vertical_axis_label":"<math><mtext>f(t)</mtext></math>","vertical_axis_values_position":"left","vertical_axis_step":"auto","grid_y":true,"vertical_grid_step":100,"width":28.274333953857422,"height":7.5,"external":false,"grid_subdivisions":2}],"handwriting_traces":[]}]]></construction><construction group="4"><![CDATA[{"elements":[{"id":"B","type":"point","coordinates":[8.705357142857139,168.88888888888886],"wiris_cas_kernel_computed":"false"},{"id":"curve1","value_content":"<math><lambda><bvar><ci>t</ci></bvar><domainofapplication><interval closure=\"closed\"><apply><minus/><cn>40</cn></apply><cn>40</cn></interval></domainofapplication><apply><times/><cn>325</cn><apply><sin/><apply><plus/><apply><divide/><apply><times/><pi/><ci>t</ci></apply><cn>10</cn></apply><apply><divide/><pi/><cn>4</cn></apply></apply></apply></apply></lambda></math>","type":"function_graph","wiris_cas_kernel_computed":"false"},{"id":"curve2","value_content":"<math><lambda><bvar><ci>t</ci></bvar><domainofapplication><interval closure=\"closed\"><apply><minus/><cn>40</cn></apply><cn>40</cn></interval></domainofapplication><apply><divide/><apply><times/><cn>65</cn><apply><sin/><apply><plus/><apply><divide/><apply><times/><pi/><ci>t</ci></apply><cn>10</cn></apply><apply><divide/><pi/><cn>4</cn></apply></apply></apply></apply><cn>2</cn></apply></lambda></math>","type":"function_graph","wiris_cas_kernel_computed":"false"},{"id":"A","type":"point","coordinates":[12.499999999999625,-325],"wiris_cas_kernel_computed":"false"}],"constraints":[],"displays":[{"styles":[{"color":"#FF0000","stroke_width":2,"external":true,"ref":"curve1"},{"color":"#0000FF","stroke_width":2,"external":true,"ref":"curve2"},{"point_size":5,"fill":"#1C1C1C","color":"#1C1C1C","stroke_width":1,"ref":"B"}],"id":"plotter1","aspect_ratio":0.06,"center":[0,0],"background_color":"#FFFFFF","axis_color":"#000000","grid_primary_color":"#C6C600","grid_secondary_color":"#E2E2E2","axis_x":true,"horizontal_axis_label":"<math><mtext>t</mtext></math>","horizontal_axis_values_position":"below","horizontal_axis_step":"auto","grid_x":true,"horizontal_grid_step":5,"axis_y":true,"vertical_axis_label":"<math><mtext>u(t)[V], i(t)[dA]</mtext></math>","vertical_axis_values_position":"left","vertical_axis_step":"auto","grid_y":true,"vertical_grid_step":100,"width":60,"height":1000,"grid_subdivisions":2}],"handwriting_traces":[]}]]></construction></constructions></wiriscalc>
