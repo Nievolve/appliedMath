@@ -1,9 +1,24 @@
 import cmath as cm
 import numpy as np
+from lib import libRadDegConv as dc
+#Return i index 0 Magnetuden  [0], och i index 1 argumentet (i grader)
+# Problem: använder inbyggda funktioner, kan göras om med "rå" matte. Bättre insyn
+def recToPol(complex):
+    magnetude = abs(complex)
+    argument = np.rad2deg(cm.phase(complex))
+    #Return magnetude(absolute), argument (degrees)
+    return magnetude,argument
 
-z1 = complex(3,4)
-z2 = complex(10,-3)
-z3 = complex(3,3)
+# Tar in magnetude och argument i polar form.
+# beräknar enligt formel ut realdelen a
+#   a = magnetude*cos((Pi/180)*argument))
+# beräknar enligt formel ut imaginärdel b
+#   b = magnetude*sin((Pi/180)*argument)
 
-z_zum=(z1+z2+z3)
-print(z_zum)
+def polToRec(magnetude, argument):
+    realA = magnetude*np.cos(dc.degToRad(argument))
+    imgB = magnetude*np.sin(dc.degToRad(argument))
+    ajb=complex(realA,imgB)
+    return ajb
+if __name__=="__main__":
+    pass

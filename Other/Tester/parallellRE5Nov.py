@@ -15,5 +15,5 @@ print(f"{ztot:.2g}")
 magnitute = abs(ztot)
 print(magnitute)
 rad = cm.phase(ztot)
-
+print("Rad: ", rad)
 print(np.rad2deg(rad))

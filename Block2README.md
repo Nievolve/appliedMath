@@ -38,6 +38,11 @@ Koden funkar
         Har två funktioner, läser in radians och gör om till grader eller tvärtom
     + xplot.py
         Tar in en lista av värden och sätter en plot för den
+    + recToPolForm.py
+        Funktionen recToPol tar in ett komplex tal i rektangulär form (a+bj) och returnar det som polar form [magnetude<argument]
+        Funktionen polToRec tar in två argument variabler[magnetud, argument] och returnar ett komplex tal i
+        rektangulär form [a+bj]
+    + sinusCosinus
 
     
 
