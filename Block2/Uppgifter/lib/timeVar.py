@@ -37,6 +37,7 @@ def UtAsList(utopp, f, phi):
     w = 2 * f * np.pi
     arange = np.arange(-T, T, 0.001)
     uTime = [utopp * np.sin(w * time) for time in arange]
+    logger.debug(f"List Created:  {uTime}")
     title = "Spänning"
     plotter(listToDisplay=uTime, titel1=title)
     return uTime
