@@ -48,6 +48,5 @@ i3List = [iCalc1(w, k) + iCalc2(w, k) for k in range]
 for k in i3List:
     print(k)
 
-titel = "Titel"
 
 
