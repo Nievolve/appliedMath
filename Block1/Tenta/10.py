@@ -26,19 +26,22 @@ print(f"B3 = {b3:.3g} grader")
 
 
 # Tillägg från komplexa tal
-I1topp = Ie1*np.sqrt(2)
-I2topp = Ie2*np.sqrt(2)
+# Beräknar Itopp.
+I1topp, I2topp = Ie1*np.sqrt(2),Ie2*np.sqrt(2)
 
+# Komplexa tal i rektangulärform.
 recIe1 = complex(I1topp*np.cos(np.deg2rad(b1)), I1topp*np.sin(np.deg2rad(b1)))
 print(recIe1)
 recIe2 = complex(I2topp*np.cos(np.deg2rad(GammaVinkel)), I2topp*np.sin(np.deg2rad(GammaVinkel)))
 print(recIe2)
+#Adderingsmotoden
 recIe3 = recIe1+recIe2
 print(recIe3)
 
+#Omvandla till polar form
 Ie3Magnetute = abs(recIe3)
 Ie3Argument = np.rad2deg(cm.phase(recIe3))
 
 print(f"Itopp3 i polarform är {Ie3Magnetute:.3g} < {Ie3Argument:.3g}")
-
+# Här fallerar den ?
 print(f"Med metoden så blir Ie3 = {Ie3Magnetute/np.sqrt(2)}")

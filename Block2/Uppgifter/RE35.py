@@ -9,9 +9,9 @@ def top(x):
 #Givet
 w = 100 * np.pi
 
-interval = np.arange(0, 0.1, 0.001)  # Från 0 till 0.1 sekunder med steget 0.001
+interval = np.arange(0, 0.1, 0.001)  
 
-# Beräkna strömvärden för varje tidpunkt i intervallet
+
 I1Graf = [Icalc(itopp=2, t=k, w=w, V=0) for k in interval]
 I2Graf = [Icalc(itopp=1.5, t=k, w=w, V=np.sqrt(2)/2) for k in interval]
 I3Graf = [Icalc(itopp=1.5, t=k, w=w, V=np.sqrt(2)/2)+Icalc(itopp=2, t=k, w=w, V=0)for k in interval]
@@ -28,18 +28,18 @@ print(solve)
 plt.plot(interval, I1Graf, label="I1")
 plt.plot(interval, I2Graf, label="I2")
 plt.plot(interval, I3Graf, label="I3")
-# Sätt etiketter för axlarna
+# axlarna
 plt.xlabel("Tid (sekunder)")
 plt.ylabel("Ström (A)")
 
-# Sätt en titel
+# titel
 plt.title("Sinusformad Ström över Tid")
 
-# Aktivera rutnät och legend
+# Aktivera 
 plt.grid(True)
 plt.legend()
 
-# Visa grafen
+# Visa 
 plt.show()
 
 

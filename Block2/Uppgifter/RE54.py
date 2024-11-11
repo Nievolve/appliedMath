@@ -28,7 +28,7 @@ plt.figure()
 plt.plot([0,z.real],[0,z.imag],marker="o",label=f"z={z:.2f}")
 
 
-#Anpassa diagrammet
+#diagrammet
 plt.xlabel("Re (Real del)")
 plt.ylabel("Im (Imaginär del)")
 plt.axhline(0,color="grey",lw=0.5)#Ritar en horisontell linje genom origon

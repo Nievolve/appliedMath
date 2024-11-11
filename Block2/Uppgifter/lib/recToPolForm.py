@@ -26,6 +26,10 @@ def polToRec(magnetude, argument):
     logger.debug(f"polToRec function imgB = {imgB}")
     ajb=complex(realA,imgB)
     return ajb
+
+# Utveckla
+def expoToRec():
+    pass
     # Skapa mappen 'logging' om den inte redan finns
 if not os.path.exists("logging"):
     os.makedirs("logging")
