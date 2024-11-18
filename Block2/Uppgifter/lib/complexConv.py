@@ -27,17 +27,23 @@ def polToRec(magnetude, argument):
     ajb=complex(realA,imgB)
     return ajb
 
-# Polar form till exponentiell form
-# Funktionen tar in magnetute och argument och sätter dem in i en exponentiell variabel som return
-# FÖr att få [Rektangulär form]-->[Expoentiell form]
-# Så skriver man:
-# polToExp(rekToPol(complex)[0],rekToPol(complex)[1])
-# FUNKAR EJ
-def polToExp(magnetut, argument):
-    absoluteArgument = magnetut
-    expo = (np.pi / 180) * argument
-    eExp = absoluteArgument*np.e**1j*expo
-    return eExp
+# Rektagulärform till exponentiell form
+# Return i index 0 Magnetuden  [0], och i index 1 argumentet (i grader)
+# Problem: använder inbyggda funktioner, kan göras om med "rå" matte. Bättre insyn
+# SKILLNADEN MELLAN POL OCH EXP ÄR NUMERA HUR DEN RETURNAR
+def rectoExp(complex):
+    magnetude = abs(complex)
+    argument = np.rad2deg(cm.phase(complex))
+    logger.debug(f"recToExp function, magnetude = {magnetude}")
+    logger.debug(f"recToExp function, argument = {argument}")
+    #Return magnetude(absolute), argument (degrees)
+    returnList = [magnetude, argument]
+    return returnList
+  
+
+
+
+
     # Skapa mappen 'logging' om den inte redan finns
 if not os.path.exists("logging"):
     os.makedirs("logging")

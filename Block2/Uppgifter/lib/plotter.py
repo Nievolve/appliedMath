@@ -23,25 +23,41 @@ def listPlotter(listToDisplay):
     plt.show()
 
 
+# Läser in värden från exempelvis komponenter i en krets. Kan användas för att ta reda (snabbt) om en krets/last är induktiv eller kapacitit.
 
-def plotLines(xLength, yLength):
-    # Skapa linjen längs x-axeln
-    x1 = [0, xLength]  # Från 0 till xLength
+def visarPlotter(base, load):
+    # Skapa linjen längs x-axeln, från origon[0] till värdet
+    x1 = [0, base]  # Från 0 till xLength
     y1 = [0, 0]        # Y är konstant 0
 
     # Skapa linjen längs y-axeln
-    x2 = [xLength, xLength]  # X är konstant vid xLength
-    y2 = [0, yLength]        # Från 0 till yLength
+    x2 = [base, base]  # X är konstant vid xLength
+    y2 = [0, load]        # Från 0 till yLength
+    # Diagonal linje för att visa U
+    x_diag = [0, base]
+    y_diag = [0, load]
+
+
 
     # Plotta båda linjerna
     plt.figure()
-    plt.plot(x1, y1, label="Linje utmed x-axeln", color="blue")
-    plt.plot(x2, y2, label="Linje utmed y-axeln", color="red")
+    plt.plot(x1, y1, label="Resistant load", color="blue")
+    plt.plot(x2, y2, label="Induktiv/Kapacitiv load", color="red")
+    plt.plot(x_diag, y_diag, linestyle='--', color="green", label="U")
+
+        
+    # Skriv ut värdena bredvid base och load linjerna
+    plt.text(base, 0, f"Base: {base}", fontsize=12, color="blue", ha="left")
+    plt.text(base, load, f"Load: {load}", fontsize=12, color="red", ha="left")
+    plt.text(0, 0, f"{np.sqrt(base**2+abs(load**2)):.2f}", fontsize=12, color="black", ha="right")
+
+
+
 
     # Lägg till etiketter och titel
-    plt.xlabel('X')
-    plt.ylabel('Y')
-    plt.title("Linjer utmed x- och y-axeln")
+    plt.xlabel('Ur')
+    plt.ylabel('Ul/Uc')
+    plt.title("Visar diagram")
     plt.axhline(0, color='black', linewidth=0.5, linestyle='--')  # Markera x-axeln
     plt.axvline(0, color='black', linewidth=0.5, linestyle='--')  # Markera y-axeln
     plt.legend()
@@ -54,4 +70,5 @@ def plotLines(xLength, yLength):
 
 
 if __name__ == "__main__":
-    plotLines(xLength=5, yLength=-2)
+
+    visarPlotter(base=5.2,load=-3.7)
