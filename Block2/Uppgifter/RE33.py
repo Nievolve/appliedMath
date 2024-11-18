@@ -13,7 +13,7 @@ bevisCos =  round((np.sin(y)**2)-(np.cos(y))**2,)
 
 
 
-# Exempel föra om decimaltal till bråk
+# Exempel föra om decimaltal till bråk!
 
 fraction = Fraction(bevisSin).limit_denominator()
 print(fraction)

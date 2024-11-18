@@ -1,41 +1,48 @@
-#Räkneexempel 3.7
-#Genom en spole med induktansen 0,8 H går en ström. Beräkna den inducerade spänningen över spolen då strömmen:
-#a) är konstant 10 A
-#b) ökar linjärt från 0 till 0,5 A på 10 ms
-#c) är en sinusformad ström i(t)=0,75⋅sin⁡(100πt) [A]
-
-#Given information:
-
-#    Induktans, L=0,8
-
-#Sökt information:
-
-#    a) Spänningen över spolen då strömmen är konstant i(t)=10 
-#    b) Spänningen över spolen då strömmen ökar linjärt från 0 A till 0,5 A på 10ms
-#    c) Spänningen över spolen då strömmen är en sinusformad funktion i(t)=0,75⋅sin⁡(100πt) [A]
+# Räkneexempel 3.7
+# Genom en spole med induktansen 0,8 H går en ström. Beräkna den inducerade spänningen över spolen då strömmen:
+# a) är konstant 10 A
+# b) ökar linjärt från 0 till 0,5 A på 10 ms
+# c) är en sinusformad ström i(t) = 0,75 * sin(100πt) [A]
 
 import numpy as np
-from lib import xyPlot
+import matplotlib.pyplot as plt
 
-def ut(Itopp,w,t):
-    return Itopp*np.sin(w*t)
-def ut1(Itopp, w, t,L):
-    return L*Itopp*np.pi*np.cos(w*t) 
+# Given information
+L = 0.8  # Induktans i Henry (H)
 
-#Given information
-intervalI = np.arange(1*10**-3,5*10**-3,5*10**-3/10)
-w = 100*np.pi
-L = 0.8 #H
-constI= 10 #A
+# a) Spänningen över spolen då strömmen är konstant i(t) = 10 A
+def induced_voltage_constant_current(L, I):
+    # Om strömmen är konstant är derivatan 0, så spänningen är 0
+    return 0
 
-#B
+I_const = 10  # A
+U_a = induced_voltage_constant_current(L, I_const)
+print(f"a) Spänningen över spolen är {U_a} V då strömmen är konstant 10 A.")
 
-Ul = [ut(intervalI, w,t)for t in intervalI]
-Ylabel="Hej"
-xyPlot.xyplot(Ul,len(Ul)+1,Ylabel)
+# b) Spänningen över spolen då strömmen ökar linjärt från 0 A till 0,5 A på 10 ms
+def induced_voltage_linear_current(L, dI, dt):
+    return L * (dI / dt)
 
+dI = 0.5  # A
+dt = 10e-3  # s (10 ms)
+U_b = induced_voltage_linear_current(L, dI, dt)
+print(f"b) Spänningen över spolen är {U_b} V då strömmen ökar linjärt från 0 A till 0,5 A på 10 ms.")
 
-#C
-# L*Itopp*w*cos(w*t)
+# c) Spänningen över spolen då strömmen är en sinusformad funktion i(t) = 0,75 * sin(100πt) [A]
+def induced_voltage_sinusoidal_current(L, I_peak, omega, t):
+    # Derivera strömmen: di/dt = I_peak * omega * cos(omega * t)
+    return L * I_peak * omega * np.cos(omega * t)
 
+I_peak = 0.75  # A
+omega = 100 * np.pi  # rad/s
+t = np.linspace(0, 0.1, 1000)  # Tid från 0 till 0,1 s
 
+U_c = induced_voltage_sinusoidal_current(L, I_peak, omega, t)
+
+# Plotta spänningen över tiden
+plt.plot(t, U_c)
+plt.title("Inducerad spänning över spole vid sinusformad ström")
+plt.xlabel("Tid (s)")
+plt.ylabel("Spänning (V)")
+plt.grid()
+plt.show()

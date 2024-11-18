@@ -4,13 +4,13 @@ import numpy as np
 # Genererar en plotter utifrån en lista
 
 def listPlotter(listToDisplay):
-    x = np.linspace(0, len(listToDisplay), len(listToDisplay))
+    x = np.linspace(0, round(len(listToDisplay)), len(listToDisplay))
 
     # Skapa plotten
     plt.figure()
 
     # Rita kurvan
-    plt.plot(x, listToDisplay, label="")
+    plt.plot(x, listToDisplay, label="Imported")
 
     # Lägg till etiketter och titel
     plt.xlabel('X')
@@ -22,5 +22,8 @@ def listPlotter(listToDisplay):
     plt.grid(True)
     plt.show()
 
-if __name__ == "__main__":
+def visarPlotter():
     pass
+
+if __name__ == "__main__":
+    visarPlotter()

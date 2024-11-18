@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from lib import xyPlot as xy
+from lib import plotter
 import sympy as sp
 # Funktion för att räkna ut plot för sinus kurva
 def Ctopp(t,w):
@@ -21,7 +21,7 @@ resultat = [Ctopp(t,w) for t in interval]
 for k in resultat:
     print(k)
 yLabel= "Spänning"
-xy.xyplot(resultat, len(resultat)+1, yLabel)
+plotter.listPlotter(resultat)
 
 
 # D
