@@ -6,3 +6,13 @@
 2024-11-12 12:35:07 - DEBUG - recToPol function, argument = 63.43494882292201
 2024-11-12 12:35:07 - DEBUG - recToPol function, magnetude = 2.23606797749979
 2024-11-12 12:35:07 - DEBUG - recToPol function, argument = 63.43494882292201
+2024-11-18 14:06:49 - DEBUG - recToPol function, magnetude = 1.4142135623730951
+2024-11-18 14:06:49 - DEBUG - recToPol function, argument = -45.0
+2024-11-18 14:06:49 - DEBUG - recToPol function, magnetude = 0.7071067811865475
+2024-11-18 14:06:49 - DEBUG - recToPol function, argument = 75.0
+2024-11-18 14:09:51 - DEBUG - recToPol function, magnetude = 1.4142135623730951
+2024-11-18 14:09:51 - DEBUG - recToPol function, argument = -45.0
+2024-11-18 14:10:03 - DEBUG - recToPol function, magnetude = 1.4142135623730951
+2024-11-18 14:10:03 - DEBUG - recToPol function, argument = -45.0
+2024-11-18 14:10:03 - DEBUG - recToPol function, magnetude = 0.7071067811865475
+2024-11-18 14:10:03 - DEBUG - recToPol function, argument = 75.0

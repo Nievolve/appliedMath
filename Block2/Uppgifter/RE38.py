@@ -35,7 +35,7 @@ Sökt
 """
 
 import numpy as np
-from lib import xyPlot as XY
+from lib import plotter
 def Ur(R,Itopp,w,t,V):
 	return R*Itopp*np.sin(w*t+V)
 def Ul(Xl,Itopp,w,t,V,fasförskjutning):
@@ -50,13 +50,12 @@ L = 0.15
 R = 100
 
 f = 50
-w = 100*np.pi
+w = 2*np.pi*f
 V = np.pi/6
 fasförskjutning= np.pi/2
 intervalT = np.arange(0.000,0.02,0.001)
 ut= [Ur(R,Itopp,w,k,V)+Ul(Xl(L,w),Itopp,w,k,V,fasförskjutning)for k in intervalT]
 Ylabel = "U(t)"
-XY.xyplot(ut,len(ut)+1,Ylabel)
-
+plotter.listPlotter(ut)
 	
 print(max(ut))

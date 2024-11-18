@@ -1,4 +1,4 @@
-from lib import recToPolForm as rp
+from lib import complexConv as cc
 import numpy as np
 """
 ### Räkneexempel 5.5
@@ -21,8 +21,8 @@ z1 = complex(1,-1)
 # 1
 # A)
 
-zPolF1 = rp.recToPol(complex(1,-1))
-print(zPolF1)
+zPolF1 = cc.recToPol(complex(1,-1))
+print(f"Det komplexa talet: {z1} blir i polar form :{zPolF1}")
 zMagnetute1 = zPolF1[0]
 zArgument1 = -np.pi/4
 print(f"a) exponentiell form från {complex(1,-1)} är = z={zMagnetute1:.5f}*e^j{zArgument1:.2g}")
@@ -30,7 +30,7 @@ print(f"a) exponentiell form från {complex(1,-1)} är = z={zMagnetute1:.5f}*e^j
 z21 = complex(1,1)
 z22 = complex(np.sqrt(3),-1)
 z23 = z21/z22
-zPolF2 = rp.recToPol(z23)
+zPolF2 = cc.recToPol(z23)
 print(zPolF2)
 zMagnetute2 = zPolF2[0]
 zArgument2 = np.deg2rad(zPolF2[1])

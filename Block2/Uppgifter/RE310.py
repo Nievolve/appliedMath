@@ -32,7 +32,7 @@
     # - För metoden b) tillämpas geometri och trigonometri
 
 import numpy as np
-from lib import xyPlot as XY
+from lib import plotter
 
 def Ur(R,Itopp,w,t,V):
     return R*Itopp*np.sin(w*t+V)
@@ -58,15 +58,15 @@ ut = [Ur(R,Itopp,w,k,V)+Uc(Xc(w,C),Itopp,w,k,V,faskompensering)for k in interval
 ur = [Ur(R,Itopp,w,k,V)for k in intervalT]
 uc = [Uc(Xc(w,C),Itopp,w,k,V,faskompensering)for k in intervalT]
 Ylabel="Ut"
-XY.xyplot(ut,len(ut)+1,Ylabel)
+plotter.listPlotter(ut)
 Ylabel="Ur"
-XY.xyplot(ur,len(ur)+1,Ylabel)
+plotter.listPlotter(ur)
 Ylabel="Uc"
-XY.xyplot(uc,len(uc)+1,Ylabel)
-print(f"Ur TOPP = {max(ur)}")
-print(f"Uc TOPP = {max(uc)}")
+plotter.listPlotter(uc)
+print(f"Ur TOPP = {max(ur):.3g}")
+print(f"Uc TOPP = {max(uc):.3g}")
 
-print(f"Ut TOPP = {max(ut)}")
+print(f"Ut TOPP = {max(ut):.3g}")
 
 
 visarUtopp = np.sqrt(max(ur)**2+max(uc)**2)
